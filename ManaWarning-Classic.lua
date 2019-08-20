@@ -144,10 +144,12 @@ end
 function btnSave_OnClick()
     ManaWarningSettings_SaveSettingsIntoVars()
     ManaWarningSettings_SaveToSavedVariables()
+    ManaWarningSettings:Hide()
 end
 
 function btnCancel_OnClick()
     ManaWarningSettings_LoadFromSavedVariables()
+    ManaWarningSettings:Hide()
 end
 
 function ManaWarningSettings_InitDefaults()
@@ -421,6 +423,7 @@ end
 
 function ManaWarning_SlashFunc()
     ManaWarningSettings:Show()
+    ManaWarningSettings_Refresh();
 end
 
 function ManaWarning_PlayerIsInPvp()

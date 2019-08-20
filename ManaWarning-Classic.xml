@@ -1,7 +1,27 @@
-﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="ManaWarning.lua" />
-	<Frame name="ManaWarningSettings" parent="UIParent">
-		<Size x="585" y="366" />
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="ManaWarning-Classic.lua" />
+	<Frame name="ManaWarningSettings" parent="UIParent" hidden="true" toplevel="true" movable="true" enableMouse="true">
+		<Size>
+			<AbsDimension x="585" y="465" />
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset x="-31" y="146" />
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
 		<Frames>
 			<CheckButton name="chkWarningHealth" inherits="UICheckButtonTemplate">
 				<Size x="19" y="20" />
@@ -89,15 +109,15 @@
 					</Anchor>
 				</Anchors>
 			</EditBox>
-      <EditBox name="edManaFloodProtection" inherits="InputBoxTemplate" numeric="true">
-        <Size x="47" y="20" />
-        <Anchors>
-          <Anchor point="TOPLEFT">
-            <Offset x="260" y="-251" />
-          </Anchor>
-        </Anchors>
-      </EditBox>
-      <CheckButton name="chkWarningOom" inherits="UICheckButtonTemplate">
+			<EditBox name="edManaFloodProtection" inherits="InputBoxTemplate" numeric="true">
+				<Size x="47" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="260" y="-251" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<CheckButton name="chkWarningOom" inherits="UICheckButtonTemplate">
 				<Size x="19" y="20" />
 				<Anchors>
 					<Anchor point="TOPLEFT">
@@ -116,15 +136,15 @@
 					</Anchor>
 				</Anchors>
 			</EditBox>
-      <EditBox name="edOomText" inherits="InputBoxTemplate">
-        <Size x="138" y="20" />
-        <Anchors>
-          <Anchor point="TOPLEFT">
-            <Offset x="260" y="-310" />
-          </Anchor>
-        </Anchors>
-      </EditBox>
-	  			<CheckButton name="chkAnnounceOomToInstance" inherits="UICheckButtonTemplate">
+			<EditBox name="edOomText" inherits="InputBoxTemplate">
+				<Size x="138" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="260" y="-310" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<CheckButton name="chkAnnounceOomToInstance" inherits="UICheckButtonTemplate">
 				<Size x="19" y="20" />
 				<Anchors>
 					<Anchor point="TOPLEFT">
@@ -156,7 +176,7 @@
 					</Anchor>
 				</Anchors>
 			</EditBox>
-      <CheckButton name="chkWarningManaCombat" inherits="UICheckButtonTemplate">
+			<CheckButton name="chkWarningManaCombat" inherits="UICheckButtonTemplate">
 				<Size x="19" y="20" />
 				<Anchors>
 					<Anchor point="TOPLEFT">
@@ -164,15 +184,15 @@
 					</Anchor>
 				</Anchors>
 			</CheckButton>
-      <CheckButton name="chkOnlyCheckPotionsInRaid" inherits="UICheckButtonTemplate">
-        <Size x="19" y="20" />
-        <Anchors>
-          <Anchor point="TOPLEFT">
-            <Offset x="250" y="-370" />
-          </Anchor>
-        </Anchors>
-      </CheckButton>
-      <CheckButton name="chkWarningManaChecks" inherits="UICheckButtonTemplate">
+			<CheckButton name="chkOnlyCheckPotionsInRaid" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="250" y="-370" />
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="chkWarningManaChecks" inherits="UICheckButtonTemplate">
 				<Size x="19" y="20" />
 				<Anchors>
 					<Anchor point="TOPLEFT">
@@ -180,6 +200,36 @@
 					</Anchor>
 				</Anchors>
 			</CheckButton>
+			<Button name="SaveButton" inherits="UIPanelButtonTemplate" text="Save">
+				<Size>
+					<AbsDimension x="100" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="30" y="-425" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						btnSave_OnClick();
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="CancelButton" inherits="UIPanelButtonTemplate" text="Cancel">
+				<Size>
+					<AbsDimension x="100" y="23" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="250" y="-425" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						btnCancel_OnClick();
+					</OnClick>
+				</Scripts>
+			</Button>
 		</Frames>
 		<Layers>
 			<Layer>
@@ -263,14 +313,14 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-        <FontString name="lblManaFloodProtection" inherits="GameFontNormalSmall" text="times" justifyH="LEFT">
-          <Size x="85" y="20" />
-          <Anchors>
-            <Anchor point="TOPLEFT">
-              <Offset x="315" y="-250" />
-            </Anchor>
-          </Anchors>
-        </FontString>
+				<FontString name="lblManaFloodProtection" inherits="GameFontNormalSmall" text="times" justifyH="LEFT">
+					<Size x="85" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="315" y="-250" />
+						</Anchor>
+					</Anchors>
+				</FontString>
 				<FontString name="lblOomThresh" inherits="GameFontNormalSmall" text="Threshold" justifyH="RIGHT">
 					<Size x="73" y="20" />
 					<Anchors>
@@ -306,8 +356,17 @@
 			</Layer>
 		</Layers>
 		<Scripts>
-			<OnLoad>ManaWarning_OnLoad(self);</OnLoad>
+			<OnLoad>
+				ManaWarning_OnLoad(self);
+				self:RegisterForDrag("LeftButton");
+			</OnLoad>
 			<OnEvent function="ManaWarning_OnEvent" />
+			<OnDragStart>
+				self:StartMoving();
+			</OnDragStart>
+			<OnDragStop>
+				self:StopMovingOrSizing();
+			</OnDragStop>
 		</Scripts>
 	</Frame>
 </Ui>
