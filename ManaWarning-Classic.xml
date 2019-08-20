@@ -1,0 +1,313 @@
+﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="ManaWarning.lua" />
+	<Frame name="ManaWarningSettings" parent="UIParent">
+		<Size x="585" y="366" />
+		<Frames>
+			<CheckButton name="chkWarningHealth" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="31" y="-14" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>chkWarningHealth_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<EditBox name="edHealthThresh" inherits="InputBoxTemplate" numeric="true">
+				<Size x="73" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="130" y="-41" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<CheckButton name="chkWarningHealthCombat" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="51" y="-65" />
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="chkWarningHealthChecks" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="51" y="-91" />
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<EditBox name="edHealthText" inherits="InputBoxTemplate">
+				<Size x="137" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="130" y="-118" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<EditBox name="edHealthInt" inherits="InputBoxTemplate" numeric="true">
+				<Size x="47" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="130" y="-145" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<CheckButton name="chkWarningMana" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="31" y="-171" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>chkWarningMana_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<EditBox name="edManaThresh" inherits="InputBoxTemplate" numeric="true">
+				<Size x="73" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="130" y="-198" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<EditBox name="edManaText" inherits="InputBoxTemplate">
+				<Size x="138" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="130" y="-224" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+			<EditBox name="edManaInt" inherits="InputBoxTemplate" numeric="true">
+				<Size x="47" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="130" y="-251" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+      <EditBox name="edManaFloodProtection" inherits="InputBoxTemplate" numeric="true">
+        <Size x="47" y="20" />
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset x="260" y="-251" />
+          </Anchor>
+        </Anchors>
+      </EditBox>
+      <CheckButton name="chkWarningOom" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="31" y="-281" />
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>chkWarningOom_OnClick();</OnClick>
+				</Scripts>
+			</CheckButton>
+			<EditBox name="edOomThresh" inherits="InputBoxTemplate" numeric="true">
+				<Size x="47" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="130" y="-310" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+      <EditBox name="edOomText" inherits="InputBoxTemplate">
+        <Size x="138" y="20" />
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset x="260" y="-310" />
+          </Anchor>
+        </Anchors>
+      </EditBox>
+	  			<CheckButton name="chkAnnounceOomToInstance" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="400" y="-310" />
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="chkAnnounceOomToParty" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="250" y="-337" />
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="chkAnnounceOomToRaid" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="400" y="-337" />
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<EditBox name="edOomInt" inherits="InputBoxTemplate" numeric="true">
+				<Size x="47" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="130" y="-337" />
+					</Anchor>
+				</Anchors>
+			</EditBox>
+      <CheckButton name="chkWarningManaCombat" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="31" y="-370" />
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+      <CheckButton name="chkOnlyCheckPotionsInRaid" inherits="UICheckButtonTemplate">
+        <Size x="19" y="20" />
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset x="250" y="-370" />
+          </Anchor>
+        </Anchors>
+      </CheckButton>
+      <CheckButton name="chkWarningManaChecks" inherits="UICheckButtonTemplate">
+				<Size x="19" y="20" />
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset x="31" y="-395" />
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+		</Frames>
+		<Layers>
+			<Layer>
+				<FontString name="lblHealthThresh" inherits="GameFontNormalSmall" text="Threshold" justifyH="RIGHT">
+					<Size x="73" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="51" y="-41" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblHealth" inherits="GameFontNormalSmall" text="%" justifyH="LEFT">
+					<Size x="58" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="209" y="-41" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblHealthText" inherits="GameFontNormalSmall" text="Text" justifyH="RIGHT">
+					<Size x="73" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="51" y="-118" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblHealthInt" inherits="GameFontNormalSmall" text="Interval" justifyH="RIGHT">
+					<Size x="73" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="51" y="-145" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblHealthIntSeconds" inherits="GameFontNormalSmall" text="seconds" justifyH="LEFT">
+					<Size x="83" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="184" y="-145" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblMana" inherits="GameFontNormalSmall" text="%" justifyH="LEFT">
+					<Size x="59" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="209" y="-197" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblManaThresh" inherits="GameFontNormalSmall" text="Threshold" justifyH="RIGHT">
+					<Size x="73" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="50" y="-198" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblManaText" inherits="GameFontNormalSmall" text="Text" justifyH="RIGHT">
+					<Size x="73" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="50" y="-224" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblManaIntSeconds" inherits="GameFontNormalSmall" text="seconds" justifyH="LEFT">
+					<Size x="85" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="183" y="-250" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblManaInt" inherits="GameFontNormalSmall" text="Interval" justifyH="RIGHT">
+					<Size x="73" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="50" y="-250" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+        <FontString name="lblManaFloodProtection" inherits="GameFontNormalSmall" text="times" justifyH="LEFT">
+          <Size x="85" y="20" />
+          <Anchors>
+            <Anchor point="TOPLEFT">
+              <Offset x="315" y="-250" />
+            </Anchor>
+          </Anchors>
+        </FontString>
+				<FontString name="lblOomThresh" inherits="GameFontNormalSmall" text="Threshold" justifyH="RIGHT">
+					<Size x="73" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="50" y="-310" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblOomThreshPerc" inherits="GameFontNormalSmall" text="%" justifyH="LEFT">
+					<Size x="85" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="183" y="-310" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblOomInt" inherits="GameFontNormalSmall" text="Interval" justifyH="RIGHT">
+					<Size x="73" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="50" y="-337" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="lblOomIntSeconds" inherits="GameFontNormalSmall" text="seconds" justifyH="LEFT">
+					<Size x="85" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset x="183" y="-337" />
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>ManaWarning_OnLoad(self);</OnLoad>
+			<OnEvent function="ManaWarning_OnEvent" />
+		</Scripts>
+	</Frame>
+</Ui>
