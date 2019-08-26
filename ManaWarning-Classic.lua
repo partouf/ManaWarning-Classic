@@ -405,20 +405,14 @@ function ManaWarning_OnLoad(obj)
     ManaWarningSettings:Hide()
 
     obj:RegisterEvent(CONST_VARSLOADED)
+
     obj:RegisterEvent(CONST_POWERUPDATE)
     obj:RegisterEvent(CONST_HEALTHUPDATE)
-    obj:RegisterEvent(CONST_SPEC_CHANGE)
 
     obj.name = 'ManaWarning'
-    --obj.okay = function (obj) btnSave_OnClick(); end;
-    --obj.cancel = function (obj) btnCancel_OnClick(); end;
-    --obj.default = function (obj) btnRestoreDefaults_OnClick(); end;
-    --obj.refresh = function (obj) ManaWarningSettings_Refresh(); end;
 
-    sCurrentSpecName = GetCurrentTalentSpec()
-
-    SLASH_MWSET1 = '/manawarning'
-    SlashCmdList['MWSET'] = ManaWarning_SlashFunc
+    SlashCmdList['MANAWARNING_SLASHCMD'] = ManaWarning_SlashFunc
+    SLASH_MANAWARNING_SLASHCMD1 = '/manawarning'
 end
 
 function ManaWarning_SlashFunc()
@@ -791,11 +785,6 @@ function ManaWarning_PlayerHealthUpdate()
     end
 end
 
--- PlayerSpecChange
-function ManaWarning_PlayerSpecChange()
-    sCurrentSpecName = GetCurrentTalentSpec()
-end
-
 -- Resets a boolean, so the ManaWarning will again show on the screen if we're still without mana
 function ManaWarning_ResetManaWarningGiven()
     bManaWarningGiven = false
@@ -808,10 +797,4 @@ end
 -- Resets a boolean, so the OOM-message will again show
 function ManaWarning_ResetManaOOMWarningGiven()
     bManaOOMWarningGiven = false
-end
-
--- Returns current Talent specialization
-function GetCurrentTalentSpec()
-    local currentSpec = GetSpecialization()
-    return currentSpec and select(2, GetSpecializationInfo(currentSpec)) or 'None'
 end
