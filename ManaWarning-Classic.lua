@@ -683,7 +683,10 @@ function ManaWarning_PlayerManaUpdate()
         currentmana = UnitPower(CONST_PLAYER)
 
         bMayGiveWarning = true
-        if (bManaDoCombatCheck) then
+        
+        if (UnitIsDead(CONST_PLAYER)) then
+            bMayGiveWarning = false
+        elseif (bManaDoCombatCheck) then
             -- don't warn if we're not in combat
             if (UnitAffectingCombat(CONST_PLAYER) == nil) then
                 bMayGiveWarning = false
@@ -750,7 +753,10 @@ function ManaWarning_PlayerHealthUpdate()
     maxhp = UnitHealthMax(CONST_PLAYER)
 
     bMayGiveWarning = true
-    if (bHealthDoCombatCheck) then
+    
+    if (UnitIsDead(CONST_PLAYER)) then
+        bMayGiveWarning = false
+    elseif (bHealthDoCombatCheck) then
         -- don't warn if we're not in combat
         if (UnitAffectingCombat(CONST_PLAYER) == nil) then
             bMayGiveWarning = false

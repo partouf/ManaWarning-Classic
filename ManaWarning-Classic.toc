@@ -2,7 +2,7 @@
 ## Interface: 11302
 ## SavedVariablesPerCharacter: ManaWarning_Settings
 ## Title: ManaWarning-Classic
-## Version: 1.0
+## Version: 1.1
 ## X-eMail: partouf@gmail.com
 ManaWarning-Classic.xml
 ManaWarning-Classic.lua
