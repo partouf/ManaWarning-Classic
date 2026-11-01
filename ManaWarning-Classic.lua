@@ -476,10 +476,10 @@ function getLowestCDInArrayOfItems(iHighestCD, array)
     iLowestRemainingTime = iHighestCD
 
     for itemId, sName in pairs(array) do
-        ic = GetItemCount(itemId)
+        ic = C_Item.GetItemCount(itemId)
 
         if (ic > 0) then
-            pot_start, pot_dur, pot_en = GetItemCooldown(itemId)
+            pot_start, pot_dur, pot_en = C_Container.GetItemCooldown(itemId)
             remaining_time = 0
 
             if (pot_start > 0) then
@@ -505,15 +505,15 @@ end
 function getSpellCD(sName)
     current_time = GetTime()
 
-    usable, nomana = IsUsableSpell(sName)
+    usable, nomana = C_Spell.IsSpellUsable(sName)
     if (usable) then
-        spell_start, spell_dur, spell_en = GetSpellCooldown(sName)
-        if (spell_start) then
-            if spell_dur < 1.5 then -- ignore gcd
+        local cooldown = C_Spell.GetSpellCooldown(sName)
+        if (cooldown) then
+            if cooldown.duration < 1.5 then -- ignore gcd
                 return 0
             else
-                if (spell_start > 0) then
-                    remaining_time = floor(spell_dur - (current_time - spell_start))
+                if (cooldown.startTime > 0) then
+                    remaining_time = floor(cooldown.duration - (current_time - cooldown.startTime))
 
                     return remaining_time
                 end
@@ -528,11 +528,12 @@ end
 
 function HasManaTideTotemOut()
     for i = 1, 40 do
-        local buff = UnitBuff(CONST_PLAYER, i)
-        if buff then
-            if (buff == 'Mana Tide Totem') then
-                return true
-            end
+        local aura = C_UnitAuras.GetBuffDataByIndex(CONST_PLAYER, i)
+        if not aura then
+            break
+        end
+        if (aura.name == 'Mana Tide Totem') then
+            return true
         end
     end
 
@@ -641,7 +642,7 @@ function ManaWarning_MessagePartyRaid(sMsg)
 
     if (UnitInRaid(CONST_PLAYER)) then
         if (bAnnounceOomToRaid) and not ManaWarning_PlayerIsInPvp() then
-            SendChatMessage(sMsg, 'RAID', nil, '')
+            C_ChatInfo.SendChatMessage(sMsg, 'RAID', nil, '')
             done = true
         else
             if DEFAULT_CHAT_FRAME then
@@ -650,12 +651,12 @@ function ManaWarning_MessagePartyRaid(sMsg)
             end
         end
     elseif (bAnnounceOomToInstance) and IsInGroup(LE_PARTY_CATEGORY_INSTANCE) then
-        SendChatMessage(sMsg, 'INSTANCE_CHAT', nil, '')
+        C_ChatInfo.SendChatMessage(sMsg, 'INSTANCE_CHAT', nil, '')
         done = true
     end
 
     if not done and bAnnounceOomToParty and IsInGroup() then
-        SendChatMessage(sMsg, 'PARTY', nil, '')
+        C_ChatInfo.SendChatMessage(sMsg, 'PARTY', nil, '')
         done = true
     end
 
@@ -688,7 +689,7 @@ function ManaWarning_PlayerManaUpdate()
             bMayGiveWarning = false
         elseif (bManaDoCombatCheck) then
             -- don't warn if we're not in combat
-            if (UnitAffectingCombat(CONST_PLAYER) == nil) then
+            if not UnitAffectingCombat(CONST_PLAYER) then
                 bMayGiveWarning = false
             end
         end
@@ -758,7 +759,7 @@ function ManaWarning_PlayerHealthUpdate()
         bMayGiveWarning = false
     elseif (bHealthDoCombatCheck) then
         -- don't warn if we're not in combat
-        if (UnitAffectingCombat(CONST_PLAYER) == nil) then
+        if not UnitAffectingCombat(CONST_PLAYER) then
             bMayGiveWarning = false
         end
     end

@@ -2,7 +2,7 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
 	xmlns="http://www.blizzard.com/wow/ui/">
 	<Script file="ManaWarning-Classic.lua" />
-	<Frame name="ManaWarningSettings" parent="UIParent" hidden="true" toplevel="true" movable="true" enableMouse="true">
+	<Frame name="ManaWarningSettings" parent="UIParent" hidden="true" toplevel="true" movable="true" enableMouse="true" inherits="BackdropTemplate">
 		<Size>
 			<AbsDimension x="585" y="465" />
 		</Size>
@@ -11,17 +11,9 @@
 				<Offset x="-31" y="146" />
 			</Anchor>
 		</Anchors>
-		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
-			<BackgroundInsets>
-				<AbsInset left="11" right="12" top="12" bottom="11" />
-			</BackgroundInsets>
-			<TileSize>
-				<AbsValue val="32" />
-			</TileSize>
-			<EdgeSize>
-				<AbsValue val="32" />
-			</EdgeSize>
-		</Backdrop>
+		<KeyValues>
+			<KeyValue key="backdropInfo" value="BACKDROP_DIALOG_32_32" type="global" />
+		</KeyValues>
 		<Frames>
 			<CheckButton name="chkWarningHealth" inherits="UICheckButtonTemplate">
 				<Size x="19" y="20" />
@@ -356,7 +348,7 @@
 			</Layer>
 		</Layers>
 		<Scripts>
-			<OnLoad>
+			<OnLoad inherit="prepend">
 				ManaWarning_OnLoad(self);
 				self:RegisterForDrag("LeftButton");
 			</OnLoad>
