@@ -1,5 +1,5 @@
 ## Author: Partouf
-## Interface: 11302
+## Interface: 11509
 ## SavedVariablesPerCharacter: ManaWarning_Settings
 ## Title: ManaWarning-Classic
 ## Version: 1.1
