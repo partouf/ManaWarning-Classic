@@ -2,6 +2,6 @@
 ## Interface: 11509
 ## SavedVariablesPerCharacter: ManaWarning_Settings
 ## Title: ManaWarning-Classic
-## Version: 1.4
+## Version: 1.5
 ## X-eMail: partouf@gmail.com
 ManaWarning-Classic.xml

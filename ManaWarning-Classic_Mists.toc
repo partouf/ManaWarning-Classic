@@ -1,0 +1,7 @@
+## Author: Partouf
+## Interface: 50504
+## SavedVariablesPerCharacter: ManaWarning_Settings
+## Title: ManaWarning-Classic
+## Version: 1.5
+## X-eMail: partouf@gmail.com
+ManaWarning-Classic.xml
